@@ -1,20 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - My Flask Projects</title>
-<!--    <link rel="stylesheet" href="/static/home-styles.css">-->
+  <meta charset="UTF-8">
+  <title>Наша Баня – Главная</title>
+  <style>
+    /* Общие стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: url("/static/images/background1.webp") no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Контейнер для информации */
+    .info-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .info-container h2 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .info-container p {
+      margin-bottom: 8px;
+      line-height: 1.5em;
+    }
+
+    /* Кнопки */
+    .btn {
+      display: inline-block;
+      background-color: #f0a200;
+      color: #000;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s, background-color 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ffc107;
+      transform: scale(1.05);
+    }
+
+    /* Анимация для плавного появления */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+  </style>
 </head>
 <body>
-<header>
-    <h1>Welcome to My Website</h1>
-</header>
+  <header>
+    <h1>Добро пожаловать в нашу Баню!</h1>
+    <p>Здесь вы можете отдохнуть и расслабиться в уютной атмосфере</p>
+  </header>
 
-<footer id="footer">
-<!--    Made by <a href="https://github.com/mark-hlavnyi" target="_blank">Mark Hlavnyi</a>-->
-</footer>
+  <main>
+    <div class="info-container">
+      <h2>Адрес</h2>
+      <p>Улица Тестовая, дом 1, Город Пример</p>
 
-<!--<script src="/static/home-script.js"></script>-->
+      <h2>Время работы</h2>
+      <p>Понедельник – Воскресенье: 10:00 – 22:00</p>
+      <p>(Временно тестовый график)</p>
+
+      <a href="#" class="btn">Забронировать</a>
+      <a href="#" class="btn">Узнать больше</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Наша Баня – Все права защищены</p>
+  </footer>
+
+  <script>
+    // Простой эффект плавного появления всего содержимого при загрузке страницы
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        document.body.style.transition = "opacity 1s";
+        document.body.style.opacity = 1;
+      }, 100);
+    });
+
+    // Дополнительный пример: при наведении на кнопки - меняем их текст (возвращается в исходное при "mouseout")
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+      button.addEventListener('mouseover', () => {
+        button.textContent = "Нажмите!";
+      });
+      button.addEventListener('mouseout', () => {
+        // Возвращаем изначальный текст в зависимости от кнопки
+        if (button.href.includes('#')) {
+          button.textContent = "Узнать больше";
+        } else {
+          button.textContent = "Забронировать";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
