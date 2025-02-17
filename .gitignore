@@ -1,0 +1,17 @@
+ .env
+ .env*
+
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+.idea/
+
+venv/
+.venv/
+
+documents/
+
+# Ignore local db files
+db.sqlite3
